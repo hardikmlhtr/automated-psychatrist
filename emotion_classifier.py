@@ -124,7 +124,7 @@ def emotion():
     else:
         valence = total_valence(sex,relevant_words)
         arousal = total_arousal(sex,relevant_words)
-        print "valence level is = "+ str(valence) +" and arousal level is " + str(arousal)
+        print "valence level is = "+ str(valence-5) +" and arousal level is " + str(arousal-5)
         #visualize(valence,arousal)
         input()
 
