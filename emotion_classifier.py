@@ -1,7 +1,8 @@
 import csv
+import matplotlib.pyplot as plt
 
-path_male = 'ANEW\male.csv'
-path_female = 'ANEW\female.csv'
+path_male = 'ANEW/male.csv'
+path_female = 'ANEW/female.csv'
 male_words = []
 male_valence_mean = []
 male_valence_std = []
@@ -102,11 +103,19 @@ def total_arousal(sex,indices_list):
         return (num_sum/den_sum)
 
 def visualize(valence,arousal):
+    plt.figure()
+    ax = plt.gca()
+    ax.plot([valence-5],[arousal-5], marker='o', color='r')
+    ax.set_xlim([-5,5])
+    ax.set_ylim([-5,5])
+    plt.draw()
+    plt.grid()
+    plt.show()
     """
     Plot valence, arousal point on a 2D plot with valence as x-axis and arousal as y-axis.
     Require matplotlib for the same. Will update the code for it.
     """
-    pass
+
 
 def emotion():
     sex = raw_input("Enter your sex(male/female) : ")
@@ -125,7 +134,7 @@ def emotion():
         valence = total_valence(sex,relevant_words)
         arousal = total_arousal(sex,relevant_words)
         print "valence level is = "+ str(valence-5) +" and arousal level is " + str(arousal-5)
-        #visualize(valence,arousal)
+        visualize(valence,arousal)
         input()
 
 if __name__ == "__main__":
