@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.hardik.mindhealth.InputActivity">
+
+    <TextView
+        android:text="Please enter some text to analyse mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/displaytxtvw"
+        />
+
+    <EditText
+        android:id="@+id/edittextinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please enter how you feel today"
+        android:layout_below="@id/displaytxtvw"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittextinput"
+        android:id="@+id/button_analyse"
+        android:layout_centerHorizontal="true"
+        android:text="Submit!"/>
+</RelativeLayout>
