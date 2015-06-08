@@ -1,5 +1,8 @@
 import csv
 import matplotlib.pyplot as plt
+import enchant
+
+enchant.request_dict("en_US")                        # get the dictionary
 
 path_male = 'ANEW/male.csv'
 path_female = 'ANEW/female.csv'
@@ -48,11 +51,23 @@ def word_list(string):
     words = string.split()
     return words
 
+def correct_list(wordsdic):
+    for word in wordsdic:
+        if d.check(word):
+            pass
+        elif not(d.check(word)):
+            new=d.suggest(word)
+            word=new[0] # if the word is not in dict the first suggestion will be choosen to replace the incorrect word
+    return wordsdic
+
+
+
 def anew_word_list(sex, speech):
     """
     Returns a list of indices of words in csv file that are in the entered speech.
     """
     all_words = word_list(speech)
+    all_words = correct_list(all_words)
     relevant = []
     if sex == 'male':
         for word in all_words:
